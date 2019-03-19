@@ -386,28 +386,29 @@ Now that you understand the basic concepts about a device template, we will impo
 
 > **Note:** When you create a device template, you will see the **Device Details** page for your new device template. IoT Central automatically creates a simulated device associated device template. A simulated device lets you test the behavior of your application before you connect a real device.
 
-    **MXChip** device template has the following characteristics:
-    
-    - Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
-    - State which contains an example measurement for **Device State**.
-    - Event measurement with a **Button B Pressed** event. 
-    - Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
-    - Properties containing device property **die number** and **Device Location** which is a location property as well as in a **Manufactured In** cloud property. 
- 
-5.	To add a new device, choose Device Explorer in the left navigation menu. The Device Explorer shows the MXChip device template and the simulated device that was automatically created when you created the device template.
+   **MXChip** device template has the following characteristics:
 
-2.	To start connecting a real MXChip, choose **+New**, then **Real**.
+   * Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
+   * State which contains an example measurement for **Device State**.
+   * Event measurement with a **Button B Pressed** event.
+   * Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
+   * Properties containing device property **die number** and **Device Location** which is a location property as well as in a **Manufactured In** cloud property.
+
+
+4.	To add a new device, choose Device Explorer in the left navigation menu. The Device Explorer shows the MXChip device template and the simulated device that was automatically created when you created the device template.
+
+5.	To start connecting a real MXChip, choose **+New**, then **Real**.
 
        * Enter the Device Id **<span style="color:Red">(should be lower case)</span>** or use the suggested Device Id.
        * Enter the Device Name or use the suggested name.
     
          ![Add Device](images/add-device.png)
 
-1. Get connection details such as **Scope ID, Device ID, and Primary SAS key** for the added device by selecting **Connect** on the device page.
+6. Get connection details such as **Scope ID, Device ID, and Primary SAS key** for the added device by selecting **Connect** on the device page.
 
     ![Connection details](images/device-connect.png)
 
-1. Make sure to save these details, as you will temporarily get disconnected from the internet as you prepare the DevKit device.
+7. Make sure to save these details, as you will temporarily get disconnected from the internet as you prepare the DevKit device.
 
 ### Prepare the DevKit device
 
