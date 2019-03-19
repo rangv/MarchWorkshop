@@ -139,11 +139,10 @@ using the Azure Portal.
 | **Storage account name** | Enter a globally unique name for a new storage account to be created.                                                                                                                                                                                          |
 
  Click on “Next: Event Source”. 
-================================
 
 ![](media/21d851b0f05c5459c6b157524cd0ca9c.png)
 
-5.  On this page, you will configure your event source for TSI. Fill the
+1.  On this page, you will configure your event source for TSI. Fill the
     following fields below:
 
 | **Property**                   | Description                                                                                                                |
@@ -297,15 +296,15 @@ Click “Save”
 10.  Navigate back to the “Analyze tab”. You will see a hierarchy that enables
     easy navigation and that provides context to the raw sensor data .
 
-11.  Now navigate the hierarchy by going to “New York” -\> “Empire State
+1.  Now navigate the hierarchy by going to “New York” -\> “Empire State
     Building” -\> “Floor 30”. Click on Chiller_3 and click on “Show humidity”
 
-![](media/f73bfd1bfa65d511cb0d3815c8f4f189.png)
+    ![](media/f73bfd1bfa65d511cb0d3815c8f4f189.png)
 
-12.  To compare “Chiller_3” with “Chiller_2” humidity, add Chiller_2 humidity as
+2.  To compare “Chiller_3” with “Chiller_2” humidity, add Chiller_2 humidity as
     follows:
 
-![](media/cf9a58a37ba11fb032a6efc6fd30fa51.png)
+    ![](media/cf9a58a37ba11fb032a6efc6fd30fa51.png)
 
     At the end of the lab, cleanup resources that you created – IoT hub and
     TSI(preview)
