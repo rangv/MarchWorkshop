@@ -83,21 +83,19 @@ In this section we will learn how to:
 * Use device properties
 * Use device settings
 
-### Tutorial: Create a device template
+### Tutorial: Create a new device template
 
 As a builder, you can create and edit the device templates in your application. When you create a device template, Azure IoT Central generates a simulated device from the template. The simulated device generates telemetry that enables you to test the behavior of your application before you connect a real device.
 
-To add a new device template to your application, you need to go to the **Device Templates** page. To do so select the **Device Templates** on the left navigation menu.
+The following steps show you how to create a new **Connected Air Conditioner** device template for devices that send temperature telemetry to your application:
+
+1. To add a new device template to your application, you need to go to the **Device Templates** page. To do so select the **Device Templates** on the left navigation menu.
 
 ![Device Templates page](images/devicetemplates.png)
 
-The following steps show you how to create a new **Connected Air Conditioner** device template for devices that send temperature telemetry to your application:
+2. On the **Device Templates** page, select **+ New**:
 
-1. On the **Device Templates** page, select **+ New**:
-
-    ![Device Templates page, Create Device Template](images/newtemplate.png)
-
-2. The page shows the templates you can choose from.
+3. The page shows the templates you can choose from.
 
     ![Device Template Library](images/devicetemplatelibrary.png)
 
@@ -130,7 +128,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
     ![Connected air conditioner measurements](images/airconmeasurementsnew.png)
 
-2. Each type of telemetry you define for a device template includes [configuration options](howto-set-up-template.md) such as:
+2. Each type of telemetry you define for a device template includes configuration options such as:
 
    * Display options.
 
