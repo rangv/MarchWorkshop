@@ -39,7 +39,7 @@ To create a new Azure IoT Central application:
 
 ![Plan](images/plan.png)
 
->Note: For more information regarding each of these fields, please click on this link:
+> **Note:** For more information regarding each of these fields, please click on this link:
 https://docs.microsoft.com/en-us/azure/iot-central/howto-create-application
 
 
@@ -80,8 +80,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
      ![Air conditioner measurements](images/airconmeasurements.png)
 
-     > [!NOTE]
-     > To change the name of the device template, select the template name at the top of the page.
+     > **Note:** To change the name of the device template, select the template name at the top of the page.
 
 ### Add a telemetry measurement
 
@@ -219,8 +218,7 @@ You use *settings* to enable an operator to send configuration data to a device.
 
     ![Configure Set Temperature setting](images/configuresetting.png)
 
-    > [!NOTE]
-    > When the device acknowledges a setting change, the status of the setting changes to **synced**.
+    > **Note:** When the device acknowledges a setting change, the status of the setting changes to **synced**.
 
 4. You can customize the layout of the **Settings** tab by moving and resizing settings tiles:
 
@@ -386,8 +384,7 @@ Now that you understand the basic concepts about a device template, we will impo
 
    ![Device template library](images/devicetemplatelibrary.png)
 
-> [!NOTE]
-> When you create a device template, you will see the **Device Details** page for your new device template. IoT Central automatically creates a simulated device associated device template. A simulated device lets you test the behavior of your application before you connect a real device.
+> **Note:** When you create a device template, you will see the **Device Details** page for your new device template. IoT Central automatically creates a simulated device associated device template. A simulated device lets you test the behavior of your application before you connect a real device.
 
     **MXChip** device template has the following characteristics:
     
@@ -414,8 +411,7 @@ Now that you understand the basic concepts about a device template, we will impo
 
 ### Prepare the DevKit device
 
-> [!NOTE]
-> If you have previously used the device and have wifi credentials stored and would like to reconfigure the device to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons on the board simultaneously. If it doesn't work, press **reset** button and try again.
+> **Note:** If you have previously used the device and have wifi credentials stored and would like to reconfigure the device to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons on the board simultaneously. If it doesn't work, press **reset** button and try again.
 
 #### To prepare the DevKit device
 
@@ -450,8 +446,7 @@ Now that you understand the basic concepts about a device template, we will impo
     - the connection details **Scope Id, Device Id, and Primary key** of your device (you should have already saved this following the steps)      
     - Select all the available telemetry measurements! 
 
-> [!NOTE]
-> You can connect to MSFTGuest or your phone's Hotspot 
+> **Note:** You can connect to MSFTGuest or your phone's Hotspot 
 
 1. After you choose **Configure Device**, you see this page:
 
@@ -468,8 +463,7 @@ When the DevKit device restarts, the screen on the device shows:
 * The number of failures.
 * The number of desired properties received and the number of reported properties sent.
 
-> [!NOTE]
-> If the device appears to be looping during connect check if the device is *Blocked* in IoT Central, and *Unblock* the device so it can connect to the app.
+> **Note:** If the device appears to be looping during connect check if the device is *Blocked* in IoT Central, and *Unblock* the device so it can connect to the app.
 
 Shake the device increment the number of reported properties sent. The device sends a random number as the **Die number** device property.
 
@@ -546,8 +540,7 @@ When you define a rule, you also define an action to run when the rule condition
     | To        | Your email address             |
     | Notes     | MXChip temperature exceeded the threshold. |
 
-    > [!NOTE]
-    > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md), and that user must have signed in to the application at least once.
+    > **Note:** To receive an email notification, the email address must be a [user ID in the application](howto-administer.md), and that user must have signed in to the application at least once.
 
     ![Temperature action](images/temperatureaction.png)
 
@@ -557,8 +550,7 @@ When you define a rule, you also define an action to run when the rule condition
 
 Shortly after you save the rule, it becomes live. When the conditions defined in the rule are met, your application sends a message to the email address you specified in the action.
 
-> [!NOTE]
-> After your testing is complete, turn off the rule to stop receiving alerts in your inbox.
+> **Note:** After your testing is complete, turn off the rule to stop receiving alerts in your inbox.
 
 ## Administration
 
@@ -586,11 +578,11 @@ Now we are going to add users as **Operators** and **Builders**
 
 ![User Role](images/userrole.png)
 
->Note: To add users in bulk, enter the User IDs of all the users you'd like to add separated by semi-colons. Choose a role from the Role drop-down and choose Save.
+> **Note:** To add users in bulk, enter the User IDs of all the users you'd like to add separated by semi-colons. Choose a role from the Role drop-down and choose Save.
 
 4. After you add a user, an entry appears for that user on the Users page
 
->Note: Edit the roles assigned to users. Roles cannot be changed once assigned. To change the role assigned to a user, delete the user and add the user again with a different role.
+> **Note:** Edit the roles assigned to users. Roles cannot be changed once assigned. To change the role assigned to a user, delete the user and add the user again with a different role.
 
 
 ## Next Steps
