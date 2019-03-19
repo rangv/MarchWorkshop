@@ -370,20 +370,6 @@ Now you've defined your **Connected Air Conditioner** device template, you can c
 
     ![View dashboard](images/dashboard.png)
 
-### Next steps
-
-In this tutorial, you learned how to:
-
-> * Create a new device template
-> * Add telemetry to your device
-> * Define device events
-> * Define your state
-> * Use settings and properties
-> * Use commands
-> * View your simulated device in the dashboard
-
-Now that you've defined a device template in your Azure IoT Central application, lets move on to the next tutorial.
-
 
 
 ## Tutorial: Add a Real Device 
@@ -396,11 +382,12 @@ Now that you understand the basic concepts about a device template, we will impo
 
 2. To create a template, start by selecting **+New**.
 
-3. Choose **MXChip** from the existing pre-built templates, and click **Create** to build your own template from scratch.
+3. Choose **MXChip** from the pre-built templates, and click **Create**.
 
    ![Device template library](images/devicetemplatelibrary.png)
 
-4. When you create a custom template, you see the **Device Details** page for your new device template. IoT Central automatically creates a simulated device when you create a device template. A simulated device lets you test the behavior of your application before you connect a real device.
+> [!NOTE]
+> When you create a device template, you will see the **Device Details** page for your new device template. IoT Central automatically creates a simulated device associated device template. A simulated device lets you test the behavior of your application before you connect a real device.
 
     **MXChip** device template has the following characteristics:
     
@@ -410,7 +397,6 @@ Now that you understand the basic concepts about a device template, we will impo
     - Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
     - Properties containing device property **die number** and **Device Location** which is a location property as well as in a **Manufactured In** cloud property. 
  
-
 5.	To add a new device, choose Device Explorer in the left navigation menu. The Device Explorer shows the MXChip device template and the simulated device that was automatically created when you created the device template.
 
 2.	To start connecting a real MXChip, choose **+New**, then **Real**.
@@ -433,9 +419,9 @@ Now that you understand the basic concepts about a device template, we will impo
 
 #### To prepare the DevKit device
 
-1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the [releases](https://aka.ms/iotcentral-docs-MXChip-releases) page on GitHub.
-1. Connect the DevKit device to your development machine using a USB cable. In Windows, a file explorer window opens on a drive mapped to the storage on the DevKit device. For example, the drive might be called **AZ3166 (D:)**.
-1. Drag the **iotCentral.bin** file onto the drive window. When the copying is complete, the device reboots with the new firmware.
+1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the **releases** (https://aka.ms/iotcentral-docs-MXChip-releases) page on GitHub.
+2. Connect the DevKit device to your development machine using a USB cable. In Windows, a file explorer window opens on a drive mapped to the storage on the DevKit device. For example, the drive might be called **AZ3166 (D:)**.
+3. Drag the **iotCentral.bin** file onto the drive window. When the copying is complete, the device reboots with the new firmware.
 
 1. When the DevKit device restarts, the following screen displays:
 
@@ -463,6 +449,9 @@ Now that you understand the basic concepts about a device template, we will impo
     - PIN CODE shown on the device LCD 
     - the connection details **Scope Id, Device Id, and Primary key** of your device (you should have already saved this following the steps)      
     - Select all the available telemetry measurements! 
+
+> [!NOTE]
+> You can connect to MSFTGuest or your phone's Hotspot 
 
 1. After you choose **Configure Device**, you see this page:
 
@@ -602,3 +591,15 @@ Now we are going to add users as **Operators** and **Builders**
 4. After you add a user, an entry appears for that user on the Users page
 
 >Note: Edit the roles assigned to users. Roles cannot be changed once assigned. To change the role assigned to a user, delete the user and add the user again with a different role.
+
+
+## Next Steps
+To continue to learn about Azure IoT Central, try out the following features:
+* [Analyze device data](https://docs.microsoft.com/en-us/azure/iot-central/howto-create-analytics)
+* [Trigger webhook action from Rules](https://docs.microsoft.com/en-us/azure/iot-central/howto-create-webhooks)
+* [Continous Data Export](https://docs.microsoft.com/en-us/azure/iot-central/howto-export-data)
+
+## Useful Resources
+* [Azure IoT Central Documentation](https://docs.microsoft.com/en-us/azure/iot-central/)
+* [Azure IoT Central Pricing](https://azure.microsoft.com/en-us/pricing/details/iot-central/)
+
