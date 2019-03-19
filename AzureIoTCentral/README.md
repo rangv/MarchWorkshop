@@ -193,13 +193,6 @@ You can use state to define and visualize the state of the device or its compone
 
     ![View state simulation](images/stateview.png)
 
-4. If there are too many data points sent by the device within a small duration, the state measurement is shown with a different visual. Select the chart to see all the data points within that time period are displayed in chronological order. You can also narrow the time range so see the measurements in more detail.
-
-
-
-
-
-* You use _commands_ to remotely manage your device from your application. You can directly run commands on the device from the cloud to control the devices. For example, an operator can run commands such as reboot, to instantly reboot the device.
 
 ### Configure settings
 
@@ -409,25 +402,25 @@ Now that you understand the basic concepts about a device template, we will impo
 
 4. When you create a custom template, you see the **Device Details** page for your new device template. IoT Central automatically creates a simulated device when you create a device template. A simulated device lets you test the behavior of your application before you connect a real device.
 
-An application created from the **Sample Devkits** application template includes a **MXChip** device template with the following characteristics:
-
-- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
-- State which contains an example measurement for **Device State**.
-- Event measurement with a **Button B Pressed** event. 
-- Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
-- Properties containing device property **die number** and **Device Location** which is a location property as well as in a **Manufactured In** cloud property. 
+    **MXChip** device template has the following characteristics:
+    
+    - Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
+    - State which contains an example measurement for **Device State**.
+    - Event measurement with a **Button B Pressed** event. 
+    - Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
+    - Properties containing device property **die number** and **Device Location** which is a location property as well as in a **Manufactured In** cloud property. 
  
 
 5.	To add a new device, choose Device Explorer in the left navigation menu. The Device Explorer shows the MXChip device template and the simulated device that was automatically created when you created the device template.
 
-2.	To start connecting a real MXChip, choose **+New**, then Real.
+2.	To start connecting a real MXChip, choose **+New**, then **Real**.
 
-   * Enter the Device Id **<span style="color:Red">(should be lower case)</span>** or use the suggested Device Id.
-   * Enter the Device Name or use the suggested name.
+       * Enter the Device Id **<span style="color:Red">(should be lower case)</span>** or use the suggested Device Id.
+       * Enter the Device Name or use the suggested name.
+    
+         ![Add Device](images/add-device.png)
 
-     ![Add Device](images/add-device.png)
-
-1. Get connection details such as **Scope ID, Device ID, and Primary key** for the added device by selecting **Connect** on the device page.
+1. Get connection details such as **Scope ID, Device ID, and Primary SAS key** for the added device by selecting **Connect** on the device page.
 
     ![Connection details](images/device-connect.png)
 
