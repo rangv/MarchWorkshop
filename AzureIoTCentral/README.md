@@ -595,4 +595,4 @@ To continue to learn about Azure IoT Central, try out the following features:
 ## Useful Resources
 * [Azure IoT Central Documentation](https://docs.microsoft.com/en-us/azure/iot-central/)
 * [Azure IoT Central Pricing](https://azure.microsoft.com/en-us/pricing/details/iot-central/)
-
+* [Send product suggestions and ideas](http://aka.ms/iotcuservoice)
