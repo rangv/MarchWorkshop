@@ -1,0 +1,257 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Map Example</title>
+        
+        <!-- styles are only used for styling header and auth elements, where possible -->
+        <link rel="stylesheet" type="text/css" href="../styles.css" />     
+        
+        <!-- boilerplate headers are injected with head.js, grab them from the live example header, or include a link to head.js -->
+        <script src="../boilerplate/head.js"></script>
+
+        <!-- boilerplate auth code is injected with auth.js, check it out for auth setup -->
+        <script src="../boilerplate/auth.js"></script>
+
+        <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    </head>
+    <body style="font-family: 'Segoe UI', sans-serif;">
+        <div id="chart1" style="position:relative;width: 50%;height:calc(100vh - 60px); margin-top: 40px;float:left;"></div>
+        <div id="myMap" style="position:relative;width:50%;height:calc(100vh - 60px);margin-top:40px;float:left;"></div>
+
+        <script>
+            //Define an initial position for our device.
+            var initialPosition = [-122.33, 47.62];
+            var map, datasource, popup, dataLayer, hoverLayer;
+
+
+            window.onload = function() {
+                initAuth('Maps Example');  //Initiate auth objects, header, and login modal
+
+                //Initialize a map instance.
+                map = new atlas.Map('myMap', {
+                    style: 'grayscale_dark',
+
+                    //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+                    authOptions: {
+                        authType: 'subscriptionKey',
+                        subscriptionKey: '<Your Azure Maps Key>'
+                    }
+                });
+
+                //Wait until the map resources are ready.
+                map.events.add('ready', function () {
+                    popup = new atlas.Popup();
+
+                    //Create a data source to add your data to.
+                    datasource = new atlas.source.DataSource();
+                    map.sources.add(datasource);
+
+                    //Create a layer for rendering the data on the map as scaled circles.
+                    dataLayer = new atlas.layer.BubbleLayer(datasource, null, {
+                        color: [
+                            "interpolate", 
+                            ["linear"], 
+                            ['get', 'temperature'],
+                            0, "royalblue",
+                            4, "cyan", 
+                            8, "lime", 
+                            10, "yellow", 
+                            12, "red"
+                        ],
+                        
+                        radius: [
+                            'interpolate',
+                            ['linear'],
+                            ['get', 'humidity'],
+                            0, 2,
+                            30, 30
+                        ],
+
+                        strokeColor: 'gray'
+                    });
+
+                    //Create a second layer that is nearly identical, but use it to highlight the selected timestamp.
+                    hoverLayer = new atlas.layer.BubbleLayer(datasource, null, {
+                        color:  [
+                            "interpolate", 
+                            ["linear"], 
+                            ['get', 'temperature'],
+                            0, "royalblue",
+                            4, "cyan", 
+                            8, "lime", 
+                            10, "yellow", 
+                            12, "red"
+                        ],
+
+                        radius: [
+                            'interpolate',
+                            ['linear'],
+                            ['get', 'humidity'],
+                            0, 2,
+                            30, 30
+                        ],
+
+                        filter: ['==', 'timestamp', '']
+                    });
+
+                    map.layers.add([dataLayer, hoverLayer]);
+
+                    map.events.add('mousemove', dataLayer, function(e){
+                        if(e && e.shapes && e.shapes.length > 0){
+                            highlightMap(e.shapes[0].getProperties().timestamp);                         
+                        }
+                    });
+
+                    map.events.add('mouseout', dataLayer, unhighlightMap);
+                });
+
+                function highlightMap(timestamp){
+                    //Filter the hover layer to show the selected timestamp.
+                    hoverLayer.setOptions({
+                        filter: ['==', 'timestamp', timestamp]
+                    });
+
+                    //Make all other data semi-transparent on the map.
+                    dataLayer.setOptions({
+                        opacity: 0.5
+                    });
+
+                    //Get the data point for the timestamp.
+                    var s = datasource.getShapes(['==', 'timestamp', timestamp]);
+                    if(s && s.length > 0){
+                        //Create the content for the popup and display it on the map.
+                        var prop = s[0].getProperties();
+
+                        popup.setOptions({
+                            content: '<div style="padding:5px;"><b>' + prop.timestamp + '</b><br/>AvgTemp: ' + prop.temperature + '<br/>AvgHumidity: ' +  prop.humidity + '<div>',
+                            position: s[0].getCoordinates(),
+                            closeButton: false
+                        });
+                        popup.open(map);
+                    }
+                }
+
+                function unhighlightMap(){
+                    //Clear the filter on the hover layer.
+                    hoverLayer.setOptions({
+                        filter: ['==', 'timestamp', '']
+                    });
+
+                    //Revert the opacity.
+                    dataLayer.setOptions({
+                        opacity: 1
+                    });
+
+                    //Close the popup.
+                    popup.close();
+                }
+
+                var tsiClient = new TsiClient();
+                            
+                // create aggregate expressions, they are S1/S2 SKU query objects
+                var linechartTsqExpressions = [];
+               
+                //Set a date range for the past 24 hours.
+                var endDate = new Date();
+                var startDate = new Date(endDate.valueOf() + 1000*60*60*24);
+    
+                linechartTsqExpressions.push(new tsiClient.ux.TsqExpression(
+                    {timeSeriesId: [null]}, // instance json
+                    {AvgTemp: {
+                        kind: 'numeric',
+                        value: {tsx: '$event.[temperature]'},
+                        filter: null,
+                        aggregation: {tsx: 'avg($value)'}
+                    }}, // variable json
+                    { from: startDate, to: endDate, bucketSize: '5m' }, // search span
+                    '#60B9AE', // color
+                    'AvgTemp')); // alias
+               
+                linechartTsqExpressions.push(new tsiClient.ux.TsqExpression(
+                    {timeSeriesId: [null]}, // instance json
+                    {AvgHumidity: {
+                        kind: 'numeric',
+                        value: {tsx: '$event.[humidity]'},
+                        filter: null,
+                        aggregation: {tsx: 'avg($value)'}
+                    }}, // variable json
+                    { from: startDate, to: endDate, bucketSize: '5m' }, // search span
+                    'yellow', // color
+                    'AvgHumidity')); // alias
+
+                // get results from server
+                authContext.getTsiToken().then(function(token){
+                    tsiClient.server.getTsqResults(token, '<Your Time Series Insights Data Access FQDN URL>', linechartTsqExpressions.map(function(ae){return ae.toTsq()})).then(function(result){
+                        var transformedResult = tsiClient.ux.transformTsqResultsForVisualization(result, linechartTsqExpressions);
+
+                        var temps = transformedResult[0].AvgTemp[''];
+                        var humidity = transformedResult[1].AvgHumidity[''];
+
+                        var timestamps = Object.keys(humidity);
+                        
+                        var features = [];
+                        var position, t, h;
+
+                        //Create mock positions for each timestamp since this device doesn't have position information.
+                        for(var i=0;i<timestamps.length;i++){
+                            var timestamp = timestamps[i];
+
+                            t = temps[timestamp].AvgTemp;
+                            h = humidity[timestamp].AvgHumidity;
+
+                            //If there is a temperature and humidity value, add a data point to the map.
+                            if(t !== null && h !== null) {
+                                //Calculate a random position that is an offset from the initialPosition.
+                                position = [
+                                    //Longitude
+                                    initialPosition[0] + (Math.random() * 0.01 - 0.005),
+                                    //Latitude
+                                    initialPosition[1] - (Math.random() * 0.01 - 0.005)
+                                ];                                
+
+                                var timestamp = timestamps[i];
+
+                                //Create a point feature that has the sensor readings and timestamp information.
+                                features.push(new atlas.data.Feature(new atlas.data.Point(position), {
+                                    temperature: t,
+                                    humidity: h,
+                                    timestamp: timestamp
+                                }));
+                            }
+                        }
+
+                        datasource.add(features);
+
+                        //Set the map view over the data.
+                        map.setCamera({
+                            bounds: atlas.data.BoundingBox.fromData(features),
+                            padding: 50
+                        });
+
+                        //Create the line chart.
+                        var lineChart = new tsiClient.ux.LineChart(document.getElementById('chart1'));
+                        lineChart.render(transformedResult, {theme: 'dark', grid: true, tooltip: true, legend: 'compact', 
+                        onMouseover: function(){
+                            var textBlock = document.querySelector('#chart1 > svg > g > g.focus > g.hHoverG > text > tspan:nth-child(1)');
+                            if(textBlock){
+
+                                var date = new Date(textBlock.innerHTML);
+                                
+                                //Convert to a UTC.
+                                date = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+
+                                var timestamp = date.toISOString().replace('.000Z', 'Z');                                
+
+                                highlightMap(timestamp);
+                            }
+                        }, onMouseout: function(){
+                            unhighlightMap();
+                        }}, linechartTsqExpressions);
+                    });
+                });
+            }
+        </script>
+    </body>
+</html>
