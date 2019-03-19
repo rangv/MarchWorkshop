@@ -232,7 +232,7 @@ function unhighlightMap(){
 }
 ```
 
-9. Next we will define the expressions for the Time Series Insights chart that displays the temperature and humidity information.
+9. Next we will define the expressions for the Time Series Insights chart that displays the temperature and humidity information. Add the following code to the onload event handler.
 
 ```
 var tsiClient = new TsiClient();
@@ -274,6 +274,7 @@ linechartTsqExpressions.push(new tsiClient.ux.TsqExpression(
 - For each timestamp, a random location that is within approximately within a third of a mile from an intial position will be generated. This location is then used to create a GeoJSON Point Feature that contains the timestamp, temperature and humidity information for the individual data point. The GeoJSON Point Features will be added to the data source using the `setShapes` function. This function overwrites any data already in the data source. Alternatively the `add` function can be used if we want to maintain any existing data in the data source.
 - Using the GeoJSON Point Features we can calculate the bounding box area of the data set and set the maps view using the `setCamera` function. Adding a padding when setting the map camera will account for the pixel dimensions of the bubble layer.
 - Mouse over and out events will be added to the chart and the timestamp information will be extracted from the tooltip and used to highlight the relevant data on the map.
+Add the following code to the onload event handler.
 
 ```
 // get results from server
