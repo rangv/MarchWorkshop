@@ -18,7 +18,6 @@ Contoso company makes Connected Air Conditioners with following device profile:
 * Has settings such to configure target temperature and fan speed.
 
 
-
 ## Tutorial: Create an application
 
 Navigate to the Azure IoT Central Application Manager page (https://aka.ms/iotcentral). You will need to sign in with a Microsoft personal or work or school account.
@@ -33,7 +32,7 @@ To create a new Azure IoT Central application:
 
 1. Choose a friendly application name, such as Contoso IoT. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
 
-1. Choose **Custom application** as the application template. An application template can contain predefined items such as device templates and dashboards to help you get started.
+1. Choose **Custom application** as the application template. 
 
 1. Select **Create**.
 
@@ -54,29 +53,17 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
     ![Device Templates page](images/devicetemplates.png)
 
-2. On the **Device Templates** page, select **+ New**:
+2. On the **Device Templates** page, select **+ New** or **+**:
 
 3. The page shows the templates you can choose from.
 
     ![Device Template Library](images/devicetemplatelibrary.png)
 
-3. Select the **Custom**, enter **Connected Air Conditioner** as the name of your device template, and then select **Create**. You can also upload an image of your device that's visible to operators in the device explorer:
+3. Select **Custom**, enter **Connected Air Conditioner** as the name of your device template, and then select **Create**. You can also upload an image of your device that's visible to operators in the device explorer.
 
     ![Custom Device](images/createcustomdevice.png)
 
-4. In the **Connected Air Conditioner** device template, make sure you're on the **Measurements** tab where you define the telemetry. Each device template you define has separate tabs for you to:
-
-   * Specify the _measurements_, such as telemetry, event, and state, sent by the device.
-
-   * Define the _settings_ used to control the device.
-
-   * Define the _properties_ that are the device metadata.
-
-   * Define the _commands_ to be run directly on the device.
-
-   * Define the _rules_ associated with the device.
-
-   * Customize the device _dashboard_ for your operators.
+4. In the **Connected Air Conditioner** device template, make sure you're on the **Measurements** tab where you define the telemetry.
 
      ![Air conditioner measurements](images/airconmeasurements.png)
 
@@ -84,16 +71,14 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
 ### Add a telemetry measurement
 
-1. To add the temperature telemetry measurement, select **+ New Measurement**. Then choose **Telemetry** as the measurement type:
+1. To add the temperature telemetry measurement, select **+ New Measurement**. Then choose **Telemetry** as the measurement type.
 
     ![Connected air conditioner measurements](images/airconmeasurementsnew.png)
 
 2. Each type of telemetry you define for a device template includes configuration options such as:
 
    * Display options.
-
    * Details of the telemetry.
-
    * Simulation parameters.
 
      To configure your **Temperature** telemetry, use the information in the following table:
@@ -121,7 +106,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
 ### Add an event measurement
 
-Use events to define point-in-time data that the device sends when there's an event such as an error or a component failure. Azure IoT Central can simulate device events to enable you to test the behavior of your application before you connect a real device. Define event measurements for your device template in the **Measurements** view.
+Use events to define point-in-time data that the device sends when there's an event such as an error or a component failure. For this tutorial we will add **Fan Motor Error** as a new event measurement.
 
 1. To add the **Fan Motor Error** event measurement, select **+ New Measurement**. Then choose **Event** as the measurement type:
 
@@ -130,9 +115,7 @@ Use events to define point-in-time data that the device sends when there's an ev
 2. Each type of Event you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
    * Display Name.
-
    * Field Name.
-
    * Severity.
 
      To configure your **Fan Motor Error** event, use the information in the following table:
@@ -151,13 +134,13 @@ Use events to define point-in-time data that the device sends when there's an ev
 
     ![View event simulation](images/eventview.png)
 
-1. To see additional details about the event, select the event on the chart:
+4. To see additional details about the event, select the event on the chart:
 
     ![View Event Details](images/eventviewdetail.png)
 
 ### Define a state measurement
 
-You can use state to define and visualize the state of the device or its component over a period of time. Azure IoT Central can simulate device state to enable you to test the behavior of your application before you connect a real device. You define state measurements for your device type in the **Measurements** view.
+You can use state to define and visualize the state of the device or its component over a period of time. For this tutorial we will add **Fan Mode** as a new state measurement.
 
 1. To add a **Fan Mode** state measurement, select **+ New Measurement**. Then choose **State** as the measurement type:
 
@@ -166,11 +149,8 @@ You can use state to define and visualize the state of the device or its compone
 2. Each type of state you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
    * Display Name.
-
    * Field Name.
-
    * Values with optional display labels.
-
    * Color for each value.
 
      To configure your **Fan Mode** state, use the information in the following table:
