@@ -75,13 +75,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
     ![Connected air conditioner measurements](images/airconmeasurementsnew.png)
 
-2. Each type of telemetry you define for a device template includes configuration options such as:
-
-   * Display options.
-   * Details of the telemetry.
-   * Simulation parameters.
-
-     To configure your **Temperature** telemetry, use the information in the following table:
+2. To create **Temperature** telemetry, use the information in the following table:
 
      | Setting              | Value         |
      | -------------------- | -----------   |
@@ -112,13 +106,7 @@ Use events to define point-in-time data that the device sends when there's an ev
 
     ![Connected air conditioner measurements](images/eventnew.png)
 
-2. Each type of Event you define for a device template includes [configuration options](howto-set-up-template.md) such as:
-
-   * Display Name.
-   * Field Name.
-   * Severity.
-
-     To configure your **Fan Motor Error** event, use the information in the following table:
+2. To create **Fan Motor Error** event, use the information in the following table:
 
      | Setting              | Value             |
      | -------------------- | -----------       |
@@ -146,14 +134,7 @@ You can use state to define and visualize the state of the device or its compone
 
     ![Connected air conditioner state measurements](images/statenew.png)
 
-2. Each type of state you define for a device template includes [configuration options](howto-set-up-template.md) such as:
-
-   * Display Name.
-   * Field Name.
-   * Values with optional display labels.
-   * Color for each value.
-
-     To configure your **Fan Mode** state, use the information in the following table:
+2. To configure **Fan Mode** state, use the information in the following table:
 
      | Setting              | Value             |
      | -------------------- | -----------       |
