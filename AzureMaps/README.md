@@ -242,7 +242,7 @@ var linechartTsqExpressions = [];
 
 //Set a date range for the past 24 hours.
 var endDate = new Date();
-var startDate = new Date(endDate.valueOf() + 1000*60*60*24);
+var startDate = new Date(endDate.valueOf() - 1000*60*60*24);
 
 linechartTsqExpressions.push(new tsiClient.ux.TsqExpression(
     {timeSeriesId: [null]}, // instance json
