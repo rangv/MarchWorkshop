@@ -23,7 +23,7 @@
         <script>
             //Define an initial position for our device.
             var initialPosition = [-122.33, 47.62];
-            var map, datasource, popup, dataLayer, hoverLayer;
+            var map, datasource, popup, dataLayer, hoverLayer, currentTimestamp;
 
 
             window.onload = function() {
@@ -104,36 +104,43 @@
                         }
                     });
 
-                    map.events.add('mouseout', dataLayer, unhighlightMap);
+                    map.events.add('mouseout', hoverLayer, unhighlightMap);
                 });
 
                 function highlightMap(timestamp){
-                    //Filter the hover layer to show the selected timestamp.
-                    hoverLayer.setOptions({
-                        filter: ['==', 'timestamp', timestamp]
-                    });
+					//Only update the UI if the timestamp has changed.
+                    if(currentTimestamp !== timestamp){
+                        currentTimestamp = timestamp;
+						
+						//Filter the hover layer to show the selected timestamp.
+						hoverLayer.setOptions({
+							filter: ['==', 'timestamp', timestamp]
+						});
 
-                    //Make all other data semi-transparent on the map.
-                    dataLayer.setOptions({
-                        opacity: 0.5
-                    });
+						//Make all other data semi-transparent on the map.
+						dataLayer.setOptions({
+							opacity: 0.5
+						});
 
-                    //Get the data point for the timestamp.
-                    var s = datasource.getShapes(['==', 'timestamp', timestamp]);
-                    if(s && s.length > 0){
-                        //Create the content for the popup and display it on the map.
-                        var prop = s[0].getProperties();
+						//Get the data point for the timestamp.
+						var s = datasource.getShapes(['==', 'timestamp', timestamp]);
+						if(s && s.length > 0){
+							//Create the content for the popup and display it on the map.
+							var prop = s[0].getProperties();
 
-                        popup.setOptions({
-                            content: '<div style="padding:5px;"><b>' + prop.timestamp + '</b><br/>AvgTemp: ' + prop.temperature + '<br/>AvgHumidity: ' +  prop.humidity + '<div>',
-                            position: s[0].getCoordinates(),
-                            closeButton: false
-                        });
-                        popup.open(map);
-                    }
+							popup.setOptions({
+								content: '<div style="padding:5px;"><b>' + prop.timestamp + '</b><br/>AvgTemp: ' + prop.temperature + '<br/>AvgHumidity: ' +  prop.humidity + '<div>',
+								position: s[0].getCoordinates(),
+								closeButton: false
+							});
+							popup.open(map);
+						}
+					}
                 }
 
                 function unhighlightMap(){
+					currentTimestamp = null;
+				
                     //Clear the filter on the hover layer.
                     hoverLayer.setOptions({
                         filter: ['==', 'timestamp', '']

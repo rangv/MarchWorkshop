@@ -86,7 +86,7 @@ Before proceeding, you will need to do the following:
 ```
  //Define an initial position for our device.
 var initialPosition = [-122.33, 47.62];
-var map, datasource, popup, dataLayer, hoverLayer;
+var map, datasource, popup, dataLayer, hoverLayer, currentTimestamp;
 
 window.onload = function() {
     initAuth('Maps Example');  //Initiate auth objects, header, and login modal
@@ -118,7 +118,7 @@ map.events.add('ready', function () {
  - Create a popup control to show details about a data point on a map when the user hovers over any data point.
  - Create a data source to store all data points.
  - Create a Bubble layer and define data-driven styles for the color and radius such that a color gradient is used based on the temperature information and the radius of each bubble is based on the humidity value. - A second layer will be defined with many of the same options, but will filter the data it shows based on the timestamp. This will allow us to render a data point for a specific timestamp differently than all other data points on the map.
- - Mouse move and out events will be added to the main data layer and used to highlight/unhighlight the data on the map and display the popup.
+ - Mouse move and out events will be added to the main data layer and hover layers respectively and used to highlight/unhighlight the data on the map and display the popup.
 Copy the following code into the maps `ready` event hander.
 
 ```
@@ -184,39 +184,46 @@ map.events.add('mousemove', dataLayer, function(e){
     }
 });
 
-map.events.add('mouseout', dataLayer, unhighlightMap);
+map.events.add('mouseout', hoverLayer, unhighlightMap);
 ```
 
 8. Next we will create two functions for highlighting and unhighlighting data on the map. When a timestamp is highlighted, all shapes on the map except those with the specified timestamp will become semi transparent. Additionall a popup will appear over the shape on the map and display the timestamp, temperature and humidty information. Copy the following into the onload event handler.
 
 ```
 function highlightMap(timestamp){
-    //Filter the hover layer to show the selected timestamp.
-    hoverLayer.setOptions({
-        filter: ['==', 'timestamp', timestamp]
-    });
+    //Only update the UI if the timestamp has changed.
+    if(currentTimestamp !== timestamp){
+        currentTimestamp = timestamp;
 
-    //Make all other data semi-transparent on the map.
-    dataLayer.setOptions({
-        opacity: 0.5
-    });
-
-    //Get the data point for the timestamp.
-    var s = datasource.getShapes(['==', 'timestamp', timestamp]);
-    if(s && s.length > 0){
-        //Create the content for the popup and display it on the map.
-        var prop = s[0].getProperties();
-
-        popup.setOptions({
-            content: '<div style="padding:5px;"><b>' + prop.timestamp + '</b><br/>AvgTemp: ' + prop.temperature + '<br/>AvgHumidity: ' +  prop.humidity + '<div>',
-            position: s[0].getCoordinates(),
-            closeButton: false
+        //Filter the hover layer to show the selected timestamp.
+        hoverLayer.setOptions({
+            filter: ['==', 'timestamp', timestamp]
         });
-        popup.open(map);
+    
+        //Make all other data semi-transparent on the map.
+        dataLayer.setOptions({
+            opacity: 0.5
+        });
+    
+        //Get the data point for the timestamp.
+        var s = datasource.getShapes(['==', 'timestamp', timestamp]);
+        if(s && s.length > 0){
+            //Create the content for the popup and display it on the map.
+            var prop = s[0].getProperties();
+    
+            popup.setOptions({
+                content: '<div style="padding:5px;"><b>' + prop.timestamp + '</b><br/>AvgTemp: ' + prop.temperature + '<br/>AvgHumidity: ' +  prop.humidity + '<div>',
+                position: s[0].getCoordinates(),
+                closeButton: false
+            });
+            popup.open(map);
+        }
     }
 }
 
 function unhighlightMap(){
+    currentTimestamp = null;
+
     //Clear the filter on the hover layer.
     hoverLayer.setOptions({
         filter: ['==', 'timestamp', '']
