@@ -1,4 +1,4 @@
-# Azure IoT Central - Fully managed hosted platform to build and run your IoT Solutions at scale 
+# Azure IoT Central - Fully managed hosted platform to build and run your IoT Solutions at scale
 
 Azure IoT Central is a fully managed hosted IoT platform that makes it easy to connect, monitor, and manage your IoT assets at scale. Bring your IoT solutions to market faster while staying focused on the business problem and your customers.
 
@@ -6,84 +6,50 @@ Azure IoT Central is a fully managed hosted IoT platform that makes it easy to c
 * Connect and manage your things with ease
 * Rest easy with world-class security and privacy
 
+In this workshop, you will learn how to build, use and administer an IoT Central application with the help of the following tutorials:
+
+* Tutorial 1 - Create an application
+* Tutorial 2 - Create a new custom device template
+* Tutorial 3 - Connect MXChip Device to IoT Central
+* Tutorial 4 - Configure rules and actions for your device
+* Tutorial 5 - Administer Your Application
+
 ## Scenario
 
-Contoso company have Connected Air Conditioner and their goal is:
+Contoso company makes Connected Air Conditioners with following device profile that they need to remotely monitor and trigger alerts when something goes wrong:
 
 * Sends telemetry such as temperature.
-* Reports state such as whether it is on or off.
-* Has properties such as its firmware version and serial number.
-* Has settings such as its target temperature and fan speed.
+* Reports device state such as ON or OFF.
+* Has properties such as  firmware version and serial number.
+* Has settings such to configure target temperature and fan speed.
 
-In this workshop, you will learn how to build, use and administer an IoT Central application through the perspective of each of these personas.
 
-![Resource Group](images/personas.png)
+## Tutorial: Create an application
 
-## Administrator
+Navigate to the Azure IoT Central Application Manager page (https://aka.ms/iotcentral). You will need to sign in with a Microsoft personal or work or school account.
 
-### Tutorial: Create an application
+To start creating a new Azure IoT Central application, select **New Application**. This takes you to the **Create Application** page.
 
-Create your Microsoft [Azure IoT Central application](https://apps.azureiotcentral.com/create) from the **Create Application** page. To create an Azure IoT Central application, you must complete all the fields on this page as below and then choose click the **Create** button.
+To create a new Azure IoT Central application:
 
-For the purposes of this workshop:
+1. Choose a payment plan:
+   - **Trial** applications are free for 7 days before they expire. They can be converted to Pay-As-You-Go at any time before they expire.
+   - **Pay-As-You-Go** applications are charged per device, with the first 5 devices free. If you are creating a **Pay-As-You-Go** application, you need to select your *Directory*, *Azure Subscription*, and *Region*.
 
-* You’ll get an authentication prompt when you the click the link to the IoT Central application creation page.
-* Log-in using your Microsoft Account (MSA) or your Microsoft corporate account (AAD) when you get an authentication prompt.
-* You must complete all the fields on this page as below and then click the “Create” button. Choose the following values for each of the fields:
-* Payment plan = “Free”
-* Template = “Custom Application”
-* You can choose a Name and URL of your choice.
+1. Choose a friendly application name, such as Contoso IoT. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
+
+1. Choose **Custom application** as the application template. 
+
+1. Select **Create**.
 
 ![Plan](images/plan.png)
 
->Note: For more information Regarding each of these fields, please click on this link:
+> **Note:** For more information regarding each of these fields, please click on this link:
 https://docs.microsoft.com/en-us/azure/iot-central/howto-create-application
 
-### Tutorial: Administer Your Application
-
-Navigate to the Administration section by choosing Administration on the left navigation menu.
-
-![Administer](images/administer.png)
-
-The Administration section enables you to:
-
-* Manage users
-* Assign roles
-
-Now we are going to add users as **Operators** and **Builders**
-
-1. To add a user account to an Azure IoT Central application, use the secondary navigation menu to navigate to the Users page in the Administration section
-
-![User Administration](images/administration.png)
-
-2. On the Users page, choose “Add User” to add a user.
 
 
-3. When you add a user to your Azure IoT Central application, choose a role for the user from the Role drop-down. Learn more about roles in the Roles in Azure IoT Central section of this article
-
-![User Role](images/userrole.png)
-
->Note: To add users in bulk, enter the User IDs of all the users you'd like to add separated by semi-colons. Choose a role from the Role drop-down and choose Save.
-
-4. After you add a user, an entry appears for that user on the Users page
-
->Note: Edit the roles assigned to users. Roles cannot be changed once assigned. To change the role assigned to a user, delete the user and add the user again with a different role.
-
-## Builder
-
-In this section we will learn how to:
-
-* Create a new device template
-* Add telemetry to your device template
-* View simulated telemetry
-* Define event measurement
-* View simulated events
-* Define state measurement
-* View simulated state
-* Use device properties
-* Use device settings
-
-### Tutorial: Create a new device template
+## Tutorial: Create a new device template
 
 As a builder, you can create and edit the device templates in your application. When you create a device template, Azure IoT Central generates a simulated device from the template. The simulated device generates telemetry that enables you to test the behavior of your application before you connect a real device.
 
@@ -91,52 +57,31 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
 1. To add a new device template to your application, you need to go to the **Device Templates** page. To do so select the **Device Templates** on the left navigation menu.
 
-![Device Templates page](images/devicetemplates.png)
+    ![Device Templates page](images/devicetemplates.png)
 
-2. On the **Device Templates** page, select **+ New**:
+2. On the **Device Templates** page, select **+ New** or **+**:
 
 3. The page shows the templates you can choose from.
 
     ![Device Template Library](images/devicetemplatelibrary.png)
 
-3. Select the **Custom**, enter **Connected Air Conditioner** as the name of your device template, and then select **Create**. You can also upload an image of your device that's visible to operators in the device explorer:
+3. Select **Custom**, enter **Connected Air Conditioner** as the name of your device template, and then select **Create**. You can also upload an image of your device that's visible to operators in the device explorer.
 
     ![Custom Device](images/createcustomdevice.png)
 
-4. In the **Connected Air Conditioner** device template, make sure you're on the **Measurements** tab where you define the telemetry. Each device template you define has separate tabs for you to:
-
-   * Specify the _measurements_, such as telemetry, event, and state, sent by the device.
-
-   * Define the _settings_ used to control the device.
-
-   * Define the _properties_ that are the device metadata.
-
-   * Define the _commands_ to be run directly on the device.
-
-   * Define the _rules_ associated with the device.
-
-   * Customize the device _dashboard_ for your operators.
+4. In the **Connected Air Conditioner** device template, make sure you're on the **Measurements** tab where you define the telemetry.
 
      ![Air conditioner measurements](images/airconmeasurements.png)
 
-     > [!NOTE]
-     > To change the name of the device template, select the template name at the top of the page.
+     > **Note:** To change the name of the device template, select the template name at the top of the page.
 
 ### Add a telemetry measurement
 
-1. To add the temperature telemetry measurement, select **+ New Measurement**. Then choose **Telemetry** as the measurement type:
+1. To add the temperature telemetry measurement, select **+ New Measurement**. Then choose **Telemetry** as the measurement type.
 
     ![Connected air conditioner measurements](images/airconmeasurementsnew.png)
 
-2. Each type of telemetry you define for a device template includes configuration options such as:
-
-   * Display options.
-
-   * Details of the telemetry.
-
-   * Simulation parameters.
-
-     To configure your **Temperature** telemetry, use the information in the following table:
+2. To create **Temperature** telemetry, use the information in the following table:
 
      | Setting              | Value         |
      | -------------------- | -----------   |
@@ -161,21 +106,13 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
 ### Add an event measurement
 
-Use events to define point-in-time data that the device sends when there's an event such as an error or a component failure. Azure IoT Central can simulate device events to enable you to test the behavior of your application before you connect a real device. Define event measurements for your device template in the **Measurements** view.
+Use events to define point-in-time data that the device sends when there's an event such as an error or a component failure. For this tutorial we will add **Fan Motor Error** as a new event measurement.
 
 1. To add the **Fan Motor Error** event measurement, select **+ New Measurement**. Then choose **Event** as the measurement type:
 
     ![Connected air conditioner measurements](images/eventnew.png)
 
-2. Each type of Event you define for a device template includes [configuration options](howto-set-up-template.md) such as:
-
-   * Display Name.
-
-   * Field Name.
-
-   * Severity.
-
-     To configure your **Fan Motor Error** event, use the information in the following table:
+2. To create **Fan Motor Error** event, use the information in the following table:
 
      | Setting              | Value             |
      | -------------------- | -----------       |
@@ -191,29 +128,19 @@ Use events to define point-in-time data that the device sends when there's an ev
 
     ![View event simulation](images/eventview.png)
 
-1. To see additional details about the event, select the event on the chart:
+4. To see additional details about the event, select the event on the chart:
 
     ![View Event Details](images/eventviewdetail.png)
 
 ### Define a state measurement
 
-You can use state to define and visualize the state of the device or its component over a period of time. Azure IoT Central can simulate device state to enable you to test the behavior of your application before you connect a real device. You define state measurements for your device type in the **Measurements** view.
+You can use state to define and visualize the state of the device or its component over a period of time. For this tutorial we will add **Fan Mode** as a new state measurement.
 
 1. To add a **Fan Mode** state measurement, select **+ New Measurement**. Then choose **State** as the measurement type:
 
     ![Connected air conditioner state measurements](images/statenew.png)
 
-2. Each type of state you define for a device template includes [configuration options](howto-set-up-template.md) such as:
-
-   * Display Name.
-
-   * Field Name.
-
-   * Values with optional display labels.
-
-   * Color for each value.
-
-     To configure your **Fan Mode** state, use the information in the following table:
+2. To configure **Fan Mode** state, use the information in the following table:
 
      | Setting              | Value             |
      | -------------------- | -----------       |
@@ -232,27 +159,10 @@ You can use state to define and visualize the state of the device or its compone
 
     ![View state simulation](images/stateview.png)
 
-4. If there are too many data points sent by the device within a small duration, the state measurement is shown with a different visual. Select the chart to see all the data points within that time period are displayed in chronological order. You can also narrow the time range so see the measurements in more detail.
 
-### Settings, properties, and commands
+### Configure settings
 
-Settings, properties, and commands are different values defined in a device template and associated with each individual device:
-
-* You use _settings_ to send configuration data to a device from your application. For example, an operator could use a setting to change the device's telemetry interval from two seconds to five seconds. When an operator changes a setting, the setting is marked as pending in the UI until the device responds with an acknowledgment.
-
-* You use _properties_ to define metadata that's associated with your device. There are two categories of properties:
-    
-  * You use _application properties_ to record information about your device in your application. For example, you can use application properties to record a device's location and its last service date. These properties are stored in the application and don't synchronize with the device. An operator can assign values to properties.
-
-  * You use _device properties_ to enable a device to send property values to your application. These properties can only be changed by the device. For an operator, device properties are read-only. In this scenario of a connected air conditioner, the firmware version and device serial number are device properties reported by the device.
-    
-    For more information, see [Properties](howto-set-up-template.md#properties) in the how-to guide on setting up a device template.
-
-* You use _commands_ to remotely manage your device from your application. You can directly run commands on the device from the cloud to control the devices. For example, an operator can run commands such as reboot, to instantly reboot the device.
-
-### Use settings
-
-You use *settings* to enable an operator to send configuration data to a device. In this section, you add a setting to your **Connected Air Conditioner** device template that enables an operator to set the target temperature of the connected air conditioner.
+You use *settings* to enable an operator to send configuration data to a device. For example, an operator could use a setting to change the device's telemetry interval from two seconds to five seconds. In this section, you add a setting to your **Connected Air Conditioner** device template that enables an operator to set the target temperature of the connected air conditioner.
 
 1. Navigate to the **Settings** tab for your **Connected Air Conditioner** device template.
 
@@ -275,37 +185,24 @@ You use *settings* to enable an operator to send configuration data to a device.
 
     ![Configure Set Temperature setting](images/configuresetting.png)
 
-    > [!NOTE]
-    > When the device acknowledges a setting change, the status of the setting changes to **synced**.
+    > **Note:** When the device acknowledges a setting change, the status of the setting changes to **synced**.
 
 4. You can customize the layout of the **Settings** tab by moving and resizing settings tiles:
 
     ![Customize settings layout](images/settingslayout.png)
 
-### Use properties
+### Configure properties
 
-You use *application properties* to store information about your device in the application. In this section, you add application properties to your **Connected Air Conditioner** device template to store the location of the device and the last service date. These properties are editable in the application. The device also reports properties such as serial number and firmware version that are read-only in the application.
+_Properties_ are used to define metadata that's associated with your device. There are two categories of properties:
+    
+  * _Application properties_ are used to record information about your device in your cloud solution. For example, you can use application properties to record a device's last service date. These properties are stored in the application and don't synchronize with the device.
+
+  * _Device properties_ are used to enable a device to send property values to your application. These properties can only be changed by the device. For an operator, device properties are read-only. In this scenario, the firmware version and device serial number are properties reported by the device.
+
 
 1. Navigate to the **Properties** tab for your **Connected Air Conditioner** device template.
 
-1. You can create device properties of different types such as numbers or text. To add a location property to your device template, choose **Location**. To configure your location property, use the information in the following table:
-
-    | Field                | Value                |
-    | -------------------- | -------------------- |
-    | Display Name         | Location             |
-    | Field Name           | location             |
-    | Initial Value        | Seattle, WA          |
-    | Description          | Device location      |
-
-    Leave other fields with their default values.
-
-    ![Configure the device properties](images/configureproperties.png)
-
-    Select **Save**.
-
-1. To add a last service date property to your device template, choose **Date**.
-
-1. To configure your last service date property, use the information in the following table:
+1. To add **Last Service Date** _application property_ to your device template, choose **Date** and then enter the following information.
 
     | Field                | Value                   |
     | -------------------- | ----------------------- |
@@ -318,11 +215,7 @@ You use *application properties* to store information about your device in the a
 
     Select **Save**.
 
-1. You can customize the layout of the **Properties** tab by moving and resizing property tiles.
-
-1. To add a device property such as firmware version to your device template, choose **Device Property**.
-
-1. To configure your firmware version, use the information in the following table:
+1. To add a _Device property_ such as **Firmware Version** to your device template, choose **Device Property** and enter the following information:
 
     | Field                | Value                   |
     | -------------------- | ----------------------- |
@@ -335,25 +228,25 @@ You use *application properties* to store information about your device in the a
 
     Select **Save**.
 
-1. To add a device property such as a serial number to your device template, choose **Device Property**.
+1. To add a location _application property_ to your device template, choose **Location**. To configure your location property, use the information in the following table:
 
-1. To configure the serial number, use the information in the following table:
+    | Field                | Value                |
+    | -------------------- | -------------------- |
+    | Display Name         | Installation Address |
+    | Field Name           | location             |
+    | Initial Value        | Seattle, WA          |
+    | Description          | Installation Address |
 
-    | Field                | Value                   |
-    | -------------------- | ----------------------- |
-    | Display Name         | Serial number           |
-    | Field Name           | serialNumber            |
-    | Data Type            | text                    |
-    | Description          | The serial number of the air conditioner  |
+    Leave other fields with their default values.
 
-    ![Configure serial number](images/configureproperties4.png)
+    ![Configure the device properties](images/configureproperties.png)
 
     Select **Save**.
 
-    > [!NOTE]
-    > Device Property is sent from the device to the application. The values of firmware version and serial number will update when your real device connects to IoT Central.
+1. You can customize the layout of the **Properties** tab by moving and resizing property tiles.
 
-### Use commands
+
+### Configure commands
 
 You use _commands_ to enable an operator to run commands directly on the device. In this section, you add a command to your **Connected Air Conditioner** device template that enables an operator to echo a certain message on the connected air conditioner.
 
@@ -379,7 +272,7 @@ You use _commands_ to enable an operator to run commands directly on the device.
 
 1. You can customize the layout of the **Commands** tab by moving and resizing the command tiles.
 
-### View your simulated device
+### Configure Device Dashboard
 
 Now you've defined your **Connected Air Conditioner** device template, you can customize its **Dashboard** to include the measurements, settings, and properties you defined. Then you can preview the dashboard as an operator:
 
@@ -430,7 +323,7 @@ Now you've defined your **Connected Air Conditioner** device template, you can c
     | Setting                 | Value         |
     | ----------------------- | ------------- |
     | Title                   | Device properties |
-    | Settings and Properties | Set Temperature<br/>Serial number<br/>Firmware version |
+    | Settings and Properties | Set Temperature<br/>Firmware version |
 
     Settings and properties that you've previously defined on the **Settings and Properties** pages are shown in **Available Columns**.
 
@@ -442,104 +335,9 @@ Now you've defined your **Connected Air Conditioner** device template, you can c
 
     ![View dashboard](images/dashboard.png)
 
-### Next steps
-
-In this tutorial, you learned how to:
-
-<!-- Repeat task list from intro -->
-> [!div class="nextstepaction"]
-> * Create a new device template
-> * Add telemetry to your device
-> * View simulated telemetry
-> * Define device events
-> * View simulated events
-> * Define your state
-> * View simulated state
-> * Use settings and properties
-> * Use commands
-> * View your simulated device in the dashboard
-
-Now that you've defined a device template in your Azure IoT Central application, lets move on to the next tutorial:
-
-### Tutorial: Configure rules and actions for your device
-
-*This article applies to operators, builders, and administrators.*
-
-In this tutorial, you create a rule that sends an email when the temperature in a connected air conditioner device exceeds 90&deg; F.
-
-In this tutorial, you learn how to:
-
-> * Create a telemetry-based rule
-> * Add an action
 
 
-### Create a rule to monitor device telemetry
-
-1. To add a new telemetry-based rule to your application, in the left navigation menu, select **Device Templates**:
-
-    ![Device Templates page](images/templatespage1.png)
-
-    You see the **Connected Air Conditioner (1.0.0)** device template you created in the previous tutorial.
-
-2. To customize your device template, select the **Connected Air Conditioner** template you created in the previous tutorial.
-
-3. To add a telemetry-based rule in the **Rules** view, select **Rules**, select **+ New Rule**, and then select **Telemetry**:
-
-    ![Rules view](images/newrule.png)
-
-5. To define your rule, use the information in the following table:
-
-    | Setting                                      | Value                             |
-    | -------------------------------------------- | ------------------------------    |
-    | Name                                         | Air conditioner temperature alert |
-    | Enable rule for all devices of this template | On                                |
-    | Condition                                    | Temperature is greater than 90    |
-    | Aggregation                                  | None                              |
-
-    ![Temperature rule condition](images/temperaturerule.png)
-
-    Then select **Save**.
-
-### Add an action
-
-When you define a rule, you also define an action to run when the rule conditions are met. In this tutorial, you create a rule with an action that sends an email notification.
-
-1. To add an **Action**, first **Save** the rule and then scroll down on the **Configure Telemetry Rule** panel. Choose the **+** next to **Actions**, and then choose **Email**:
-
-    ![Temperature rule action](images/addaction.png)
-
-2. To define your action, use the information in the following table:
-
-    | Setting   | Value                          |
-    | --------- | ------------------------------ |
-    | To        | Your email address             |
-    | Notes     | Air conditioner temperature exceeded the threshold. |
-
-    > [!NOTE]
-    > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md), and that user must have signed in to the application at least once.
-
-    ![Temperature action](images/temperatureaction.png)
-
-3. Select **Save**. Your rule is listed on the **Rules** page.
-
-### Test the rule
-
-Shortly after you save the rule, it becomes live. When the conditions defined in the rule are met, your application sends a message to the email address you specified in the action.
-
-> [!NOTE]
-> After your testing is complete, turn off the rule to stop receiving alerts in your inbox.
-
-### Next steps
-
-In this tutorial, you learned how to:
-
-> * Create a telemetry-based rule
-> * Add an action to the rule
-
-===================================================================
-
-
-## Tutorial: Add a Real Device 
+## Tutorial: Connect MXChip Device to IoT Central
 
 Now that you understand the basic concepts about a device template, we will import an existing template from the **Device Template library** and use it to connect a real MXChip device to Azure IoT Central.
 
@@ -549,46 +347,45 @@ Now that you understand the basic concepts about a device template, we will impo
 
 2. To create a template, start by selecting **+New**.
 
-3. Choose **MXChip** from the existing pre-built templates, and click **Create** to build your own template from scratch.
+3. Choose **MXChip** from the pre-built templates, and click **Create**.
 
    ![Device template library](images/devicetemplatelibrary.png)
 
-4. When you create a custom template, you see the **Device Details** page for your new device template. IoT Central automatically creates a simulated device when you create a device template. A simulated device lets you test the behavior of your application before you connect a real device.
+> **Note:** When you create a device template, you will see the **Device Details** page for your new device template. IoT Central automatically creates a simulated device associated device template. A simulated device lets you test the behavior of your application before you connect a real device.
 
-An application created from the **Sample Devkits** application template includes a **MXChip** device template with the following characteristics:
+   **MXChip** device template has the following characteristics:
 
-- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
-- State which contains an example measurement for **Device State**.
-- Event measurement with a **Button B Pressed** event. 
-- Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
-- Properties containing device property **die number** and **Device Location** which is a location property as well as in a **Manufactured In** cloud property. 
- 
+   * Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
+   * State which contains an example measurement for **Device State**.
+   * Event measurement with a **Button B Pressed** event.
+   * Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
+   * Properties containing device property **die number** and **Device Location** which is a location property as well as in a **Manufactured In** cloud property.
 
-5.	To add a new device, choose Device Explorer in the left navigation menu. The Device Explorer shows the MXChip device template and the simulated device that was automatically created when you created the device template.
 
-2.	To start connecting a real MXChip, choose **+New**, then Real.
+4.	To add a new device, choose Device Explorer in the left navigation menu. The Device Explorer shows the MXChip device template and the simulated device that was automatically created when you created the device template.
 
-   * Enter the Device Id **<span style="color:Red">(should be lower case)</span>** or use the suggested Device Id.
-   * Enter the Device Name or use the suggested name.
+5.	To start connecting a real MXChip, choose **+New**, then **Real**.
 
-     ![Add Device](images/add-device.png)
+       * Enter the Device Id **<span style="color:Red">(should be lower case)</span>** or use the suggested Device Id.
+       * Enter the Device Name or use the suggested name.
+    
+         ![Add Device](images/add-device.png)
 
-1. Get connection details such as **Scope ID, Device ID, and Primary key** for the added device by selecting **Connect** on the device page.
+6. Get connection details such as **Scope ID, Device ID, and Primary SAS key** for the added device by selecting **Connect** on the device page.
 
     ![Connection details](images/device-connect.png)
 
-1. Make sure to save these details, as you will temporarily get disconnected from the internet as you prepare the DevKit device.
+7. Make sure to save these details, as you will temporarily get disconnected from the internet as you prepare the DevKit device.
 
 ### Prepare the DevKit device
 
-> [!NOTE]
-> If you have previously used the device and have wifi credentials stored and would like to reconfigure the device to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons on the board simultaneously. If it doesn't work, press **reset** button and try again.
+> **Note:** If you have previously used the device and have wifi credentials stored and would like to reconfigure the device to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons on the board simultaneously. If it doesn't work, press **reset** button and try again.
 
 #### To prepare the DevKit device
 
-1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the [releases](https://aka.ms/iotcentral-docs-MXChip-releases) page on GitHub.
-1. Connect the DevKit device to your development machine using a USB cable. In Windows, a file explorer window opens on a drive mapped to the storage on the DevKit device. For example, the drive might be called **AZ3166 (D:)**.
-1. Drag the **iotCentral.bin** file onto the drive window. When the copying is complete, the device reboots with the new firmware.
+1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the **releases** (https://aka.ms/iotcentral-docs-MXChip-releases) page on GitHub.
+2. Connect the DevKit device to your development machine using a USB cable. In Windows, a file explorer window opens on a drive mapped to the storage on the DevKit device. For example, the drive might be called **AZ3166 (D:)**.
+3. Drag the **iotCentral.bin** file onto the drive window. When the copying is complete, the device reboots with the new firmware.
 
 1. When the DevKit device restarts, the following screen displays:
 
@@ -617,6 +414,8 @@ An application created from the **Sample Devkits** application template includes
     - the connection details **Scope Id, Device Id, and Primary key** of your device (you should have already saved this following the steps)      
     - Select all the available telemetry measurements! 
 
+> **Note:** You can connect to MSFTGuest or your phone's Hotspot 
+
 1. After you choose **Configure Device**, you see this page:
 
     ![Device configured](images/deviceconfigured.png)
@@ -624,7 +423,7 @@ An application created from the **Sample Devkits** application template includes
 1. Press the **Reset** button on your device.
 
 
-## View the telemetry
+### View the telemetry
 
 When the DevKit device restarts, the screen on the device shows:
 
@@ -632,8 +431,7 @@ When the DevKit device restarts, the screen on the device shows:
 * The number of failures.
 * The number of desired properties received and the number of reported properties sent.
 
-> [!NOTE]
-> If the device appears to be looping during connect check if the device is *Blocked* in IoT Central, and *Unblock* the device so it can connect to the app.
+> **Note:** If the device appears to be looping during connect check if the device is *Blocked* in IoT Central, and *Unblock* the device so it can connect to the app.
 
 Shake the device increment the number of reported properties sent. The device sends a random number as the **Die number** device property.
 
@@ -654,3 +452,108 @@ You can view the telemetry measurements and reported property values, and config
 1. On the **Settings** page, you can update the settings on the MXChip device:
 
     ![View device settings](images/devicesettingsnew.png)
+
+
+## Tutorial: Configure rules and actions for your device
+
+*This article applies to operators, builders, and administrators.*
+
+In this tutorial, you create a rule that sends an email when the temperature reported by MXChip device exceeds 90&deg; F.
+
+
+### Create a rule to monitor device telemetry
+
+1. To add a new telemetry-based rule to your application, in the left navigation menu, select **Device Templates**:
+
+    ![Device Templates page](images/templatespage1.png)
+
+    You see the **MXChip** device template you created in the previous tutorial.
+
+2. To customize your device template, select the **MXChip** template you created in the previous tutorial.
+
+3. To add a telemetry-based rule in the **Rules** view, select **Rules**, select **+ New Rule**, and then select **Telemetry**:
+
+    ![Rules view](images/newrule.png)
+
+5. To define your rule, use the information in the following table:
+
+    | Setting                                      | Value                             |
+    | -------------------------------------------- | ------------------------------    |
+    | Name                                         | MChip temperature alert           |
+    | Enable rule for all devices of this template | On                                |
+    | Condition                                    | Temperature is greater than 90    |
+    | Aggregation                                  | None                              |
+
+    ![Temperature rule condition](images/temperaturerule.png)
+
+    Then select **Save**.
+
+### Add an action
+
+When you define a rule, you also define an action to run when the rule conditions are met. In this tutorial, you create a rule with an action that sends an email notification.
+
+1. To add an **Action**, first **Save** the rule and then scroll down on the **Configure Telemetry Rule** panel. Choose the **+** next to **Actions**, and then choose **Email**:
+
+    ![Temperature rule action](images/addaction.png)
+
+2. To define your action, use the information in the following table:
+
+    | Setting   | Value                          |
+    | --------- | ------------------------------ |
+    | To        | Your email address             |
+    | Notes     | MXChip temperature exceeded the threshold. |
+
+    > **Note:** To receive an email notification, the email address must be a [user ID in the application](howto-administer.md), and that user must have signed in to the application at least once.
+
+    ![Temperature action](images/temperatureaction.png)
+
+3. Select **Save**. Your rule is listed on the **Rules** page.
+
+### Test the rule
+
+Shortly after you save the rule, it becomes live. When the conditions defined in the rule are met, your application sends a message to the email address you specified in the action.
+
+> **Note:** After your testing is complete, turn off the rule to stop receiving alerts in your inbox.
+
+
+## Tutorial: Administer Your Application
+
+Navigate to the Administration section by choosing Administration on the left navigation menu.
+
+![Administer](images/administer.png)
+
+The Administration section enables you to:
+
+* Manage users
+* Assign roles
+
+Now we are going to add users as **Operators** and **Builders**
+
+1. To add a user account to an Azure IoT Central application, use the secondary navigation menu to navigate to the Users page in the Administration section
+
+![User Administration](images/administration.png)
+
+2. On the Users page, choose “Add User” to add a user.
+
+
+3. When you add a user to your Azure IoT Central application, choose a role for the user from the Role drop-down.
+
+![User Role](images/userrole.png)
+
+> **Note:** To add users in bulk, enter the User IDs of all the users you'd like to add separated by semi-colons. Choose a role from the Role drop-down and choose Save.
+
+4. After you add a user, an entry appears for that user on the Users page
+
+> **Note:** Edit the roles assigned to users. Roles cannot be changed once assigned. To change the role assigned to a user, delete the user and add the user again with a different role.
+
+
+## Next Steps
+To continue to learn about Azure IoT Central, try out the following features:
+* [Analyze device data](https://docs.microsoft.com/en-us/azure/iot-central/howto-create-analytics)
+* [Trigger webhook action from Rules](https://docs.microsoft.com/en-us/azure/iot-central/howto-create-webhooks)
+* [Continous Data Export](https://docs.microsoft.com/en-us/azure/iot-central/howto-export-data)
+
+## Useful Resources
+* [Azure IoT Central Documentation](https://docs.microsoft.com/en-us/azure/iot-central/)
+* [Azure IoT Central Pricing](https://azure.microsoft.com/en-us/pricing/details/iot-central/)
+* [Send product suggestions and ideas](http://aka.ms/iotcuservoice)
