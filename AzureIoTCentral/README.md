@@ -536,7 +536,7 @@ Now we are going to add users as **Operators** and **Builders**
 2. On the Users page, choose “Add User” to add a user.
 
 
-3. When you add a user to your Azure IoT Central application, choose a role for the user from the Role drop-down. Learn more about roles in the Roles in Azure IoT Central section of this article
+3. When you add a user to your Azure IoT Central application, choose a role for the user from the Role drop-down.
 
 ![User Role](images/userrole.png)
 
