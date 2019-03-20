@@ -1,4 +1,4 @@
-# Azure IoT Central - Fully managed hosted platform to build and run your IoT Solutions at scale 
+# Azure IoT Central - Fully managed hosted platform to build and run your IoT Solutions at scale
 
 Azure IoT Central is a fully managed hosted IoT platform that makes it easy to connect, monitor, and manage your IoT assets at scale. Bring your IoT solutions to market faster while staying focused on the business problem and your customers.
 
@@ -6,11 +6,17 @@ Azure IoT Central is a fully managed hosted IoT platform that makes it easy to c
 * Connect and manage your things with ease
 * Rest easy with world-class security and privacy
 
-In this workshop, you will learn how to build, use and administer an IoT Central application.
+In this workshop, you will learn how to build, use and administer an IoT Central application with the help of the following tutorials:
+
+* Tutorial 1 - Create an application
+* Tutorial 2 - Create a new custom device template
+* Tutorial 3 - Connect MXChip Device to IoT Central
+* Tutorial 4 - Configure rules and actions for your device
+* Tutorial 5 - Administer Your Application
 
 ## Scenario
 
-Contoso company makes Connected Air Conditioners with following device profile:
+Contoso company makes Connected Air Conditioners with following device profile that they need to remotely monitor and trigger alerts when something goes wrong:
 
 * Sends telemetry such as temperature.
 * Reports device state such as ON or OFF.
@@ -331,7 +337,7 @@ Now you've defined your **Connected Air Conditioner** device template, you can c
 
 
 
-## Tutorial: Add a Real Device 
+## Tutorial: Connect MXChip Device to IoT Central
 
 Now that you understand the basic concepts about a device template, we will import an existing template from the **Device Template library** and use it to connect a real MXChip device to Azure IoT Central.
 
@@ -417,7 +423,7 @@ Now that you understand the basic concepts about a device template, we will impo
 1. Press the **Reset** button on your device.
 
 
-## View the telemetry
+### View the telemetry
 
 When the DevKit device restarts, the screen on the device shows:
 
@@ -453,11 +459,6 @@ You can view the telemetry measurements and reported property values, and config
 *This article applies to operators, builders, and administrators.*
 
 In this tutorial, you create a rule that sends an email when the temperature reported by MXChip device exceeds 90&deg; F.
-
-In this tutorial, you will learn how to:
-
-> * Create a telemetry-based rule
-> * Add an action to the rule
 
 
 ### Create a rule to monitor device telemetry
@@ -514,9 +515,8 @@ Shortly after you save the rule, it becomes live. When the conditions defined in
 
 > **Note:** After your testing is complete, turn off the rule to stop receiving alerts in your inbox.
 
-## Administration
 
-### Tutorial: Administer Your Application
+## Tutorial: Administer Your Application
 
 Navigate to the Administration section by choosing Administration on the left navigation menu.
 
