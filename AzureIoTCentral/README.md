@@ -44,10 +44,6 @@ To create a new Azure IoT Central application:
 
 ![Plan](images/plan.png)
 
-> **Note:** For more information regarding each of these fields, please click on this link:
-https://docs.microsoft.com/en-us/azure/iot-central/howto-create-application
-
-
 
 ## Tutorial: Create a new device template
 
