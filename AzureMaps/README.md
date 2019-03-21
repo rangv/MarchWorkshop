@@ -40,7 +40,7 @@ Before proceeding, you will need to do the following:
 ## Create a Map Dashboard
 
 1. Navigate to the `tsiclient\pages\examples\withplatform` folder of the TSIClient project and create a file called `mapssample.html`.
-2. Copy and paste the following code into the `mapssample.html` file.
+2. Copy and paste the following code into the `mapsexample.html` file.
 
 ```
 <!DOCTYPE html> 
