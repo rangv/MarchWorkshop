@@ -1,4 +1,4 @@
-# Azure Maps
+# Azure Maps + TSI + IoT Hub Hands On Lab Guide
 
 In this section of the lab you will build on the previous labs and will create a custom Time Series Insights dashboard that has a custom map visual. Since the MXChip doesn't have a location sensor, this sample will assign a random location to each timestamp. In the future, if you have a device that has location data, this sample can easily be updated to use that information instead.
 
