@@ -32,7 +32,7 @@ Before proceeding, you will need to do the following:
 
 > `git clone https://github.com/Microsoft/tsiclient.git`
 
-6. Enter `cd .\tsiclent\`
+6. Enter `cd .\tsiclient\`
 7. Enter `npm install`
 8. Enter `npm start`
 9. Open a browser and navigate to [https://insights-local.timeseries.azure.com/withplatform/basiccharts.html](https://insights-local.timeseries.azure.com/withplatform/basiccharts.html) to ensure things are working.
