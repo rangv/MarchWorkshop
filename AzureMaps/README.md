@@ -50,23 +50,24 @@ Before proceeding, you will need to do the following:
         
         <!-- styles are only used for styling header and auth elements, where possible -->
         <link rel="stylesheet" type="text/css" href="../styles.css" />     
-        
-        <!-- boilerplate headers are injected with head.js, grab them from the live example header, or include a link to head.js -->
-        <script src="../boilerplate/head.js"></script>
 
-        <!-- boilerplate auth code is injected with auth.js, check it out for auth setup -->
-        <script src="../boilerplate/auth.js"></script>
     </head>
     <body style="font-family: 'Segoe UI', sans-serif;">
 
         <script>
             //Add JavaScript here.
         </script>
+		        
+        <!-- boilerplate headers are injected with head.js, grab them from the live example header, or include a link to head.js -->
+        <script src="../boilerplate/head.js"></script>
+
+        <!-- boilerplate auth code is injected with auth.js, check it out for auth setup -->
+        <script src="../boilerplate/auth.js"></script>
     </body>   
 </html>
 ```
 
-3. In the head section of the HTML, add a reference to the Azure Maps Web SDK by adding the following tags:
+3. In the body section of the HTML, add a reference to the Azure Maps Web SDK by adding the following tags:
 
 ```
 <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
