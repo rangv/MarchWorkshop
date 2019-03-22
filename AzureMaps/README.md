@@ -32,7 +32,7 @@ Before proceeding, you will need to do the following:
 
 > `git clone https://github.com/Microsoft/tsiclient.git`
 
-6. Enter `cd .\tsiclent\`
+6. Enter `cd .\tsiclient\`
 7. Enter `npm install`
 8. Enter `npm start`
 9. Open a browser and navigate to [https://insights-local.timeseries.azure.com/withplatform/basiccharts.html](https://insights-local.timeseries.azure.com/withplatform/basiccharts.html) to ensure things are working.
@@ -40,6 +40,7 @@ Before proceeding, you will need to do the following:
 ## Create a Map Dashboard
 
 1. Navigate to the `tsiclient\pages\examples\withplatform` folder of the TSIClient project and create a file called `mapsexample.html`.
+
 2. Copy and paste the following code into the `mapsexample.html` file.
 
 ```
@@ -359,7 +360,7 @@ authContext.getTsiToken().then(function(token){
 
 11. Open a browser and navigate to [https://insights-local.timeseries.azure.com/withplatform/mapsexample.html](https://insights-local.timeseries.azure.com/withplatform/mapsexample.html) You should see data from your MXChip from the past 24 hours displayed in the chart and on the map.
 
-Full source code for the `mapsexample.html` file can be found in the `src` folder of this GitHub repo. Note you will need to update the Time Series Insights environement id to ensure it connects to your data.
+Full source code for the `mapsexample.html` file can be found [here](https://github.com/rangv/MarchWorkshop/blob/master/AzureMaps/src/mapsexample.html). Note you will need to update the Time Series Insights environement id to ensure it connects to your data.
 
 ## Troubleshooting
 
