@@ -32,7 +32,7 @@ Before proceeding, you will need to do the following:
 
 > `git clone https://github.com/Microsoft/tsiclient.git`
 
-6. Enter `cd .\tsiclent\`
+6. Enter `cd .\tsiclient\`
 7. Enter `npm install`
 8. Enter `npm start`
 9. Open a browser and navigate to [https://insights-local.timeseries.azure.com/withplatform/basiccharts.html](https://insights-local.timeseries.azure.com/withplatform/basiccharts.html) to ensure things are working.
@@ -40,7 +40,7 @@ Before proceeding, you will need to do the following:
 ## Create a Map Dashboard
 
 1. Navigate to the `tsiclient\pages\examples\withplatform` folder of the TSIClient project and create a file called `mapssample.html`.
-2. Copy and paste the following code into the `mapssample.html` file.
+2. Copy and paste the following code into the `mapsexample.html` file.
 
 ```
 <!DOCTYPE html> 
