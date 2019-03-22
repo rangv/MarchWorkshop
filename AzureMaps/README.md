@@ -22,7 +22,7 @@ Before proceeding, you will need to do the following:
 
 ## Lab Setup
 
-1. Open the Windows host file located `C:\Windows\System32\drivers\etc\hosts.txt`
+1. Open the Windows host file located `C:\Windows\System32\drivers\etc\hosts`
 2. Add a new line with the following information:
 > `127.0.0.1 insights-local.timeseries.azure.com` 
 3. Open VS Code.
@@ -39,8 +39,8 @@ Before proceeding, you will need to do the following:
 
 ## Create a Map Dashboard
 
-1. Navigate to the `tsiclient\pages\examples\withplatform` folder of the TSIClient project and create a file called `mapssample.html`.
-2. Copy and paste the following code into the `mapssample.html` file.
+1. Navigate to the `tsiclient\pages\examples\withplatform` folder of the TSIClient project and create a file called `mapsexample.html`.
+2. Copy and paste the following code into the `mapsexample.html` file.
 
 ```
 <!DOCTYPE html> 
@@ -359,7 +359,7 @@ authContext.getTsiToken().then(function(token){
 
 11. Open a browser and navigate to [https://insights-local.timeseries.azure.com/withplatform/mapsexample.html](https://insights-local.timeseries.azure.com/withplatform/mapsexample.html) You should see data from your MXChip from the past 24 hours displayed in the chart and on the map.
 
-Full source code for the `mapsexampe.html` file can be found in the `src` folder of this GitHub repo. Note you will need to update the Time Series Insights environement id to ensure it connects to your data.
+Full source code for the `mapsexample.html` file can be found in the `src` folder of this GitHub repo. Note you will need to update the Time Series Insights environement id to ensure it connects to your data.
 
 ## Troubleshooting
 
